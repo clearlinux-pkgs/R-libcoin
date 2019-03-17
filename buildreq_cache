@@ -1,4 +1,7 @@
 1.0.4
 R-TH.data
 R-coin
+R-matrixStats
+R-modeltools
+R-multcomp
 R-mvtnorm

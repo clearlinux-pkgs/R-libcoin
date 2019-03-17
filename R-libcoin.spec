@@ -4,18 +4,21 @@
 #
 Name     : R-libcoin
 Version  : 1.0.4
-Release  : 18
+Release  : 19
 URL      : https://cran.r-project.org/src/contrib/libcoin_1.0-4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/libcoin_1.0-4.tar.gz
 Summary  : Linear Test Statistics for Permutation Inference
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: R-libcoin-lib = %{version}-%{release}
-Requires: R-TH.data
-Requires: R-coin
-Requires: R-mvtnorm
+Requires: R-matrixStats
+Requires: R-modeltools
+Requires: R-multcomp
 BuildRequires : R-TH.data
 BuildRequires : R-coin
+BuildRequires : R-matrixStats
+BuildRequires : R-modeltools
+BuildRequires : R-multcomp
 BuildRequires : R-mvtnorm
 BuildRequires : buildreq-R
 
@@ -38,10 +41,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1551374165
+export SOURCE_DATE_EPOCH=1552809566
 
 %install
-export SOURCE_DATE_EPOCH=1551374165
+export SOURCE_DATE_EPOCH=1552809566
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -77,8 +80,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library libcoin|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  libcoin || :
 
 
 %files
@@ -112,7 +114,12 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/libcoin/include/libcoinAPI.h
 /usr/lib64/R/library/libcoin/include/libcoin_internal.h
 /usr/lib64/R/library/libcoin/libcoin.bib
-/usr/lib64/R/library/libcoin/libs/symbols.rds
+/usr/lib64/R/library/libcoin/tests/bugfixes.R
+/usr/lib64/R/library/libcoin/tests/bugfixes.Rout.save
+/usr/lib64/R/library/libcoin/tests/libcoin.R
+/usr/lib64/R/library/libcoin/tests/regtest_ctabs.R
+/usr/lib64/R/library/libcoin/tests/regtest_ctabs.Rout.save
+/usr/lib64/R/library/libcoin/tests/regtest_libcoin.R
 
 %files lib
 %defattr(-,root,root,-)
