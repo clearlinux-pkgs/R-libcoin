@@ -1,4 +1,7 @@
 # This file contains recursive sources that require this package
+R-betareg
 R-coin
 R-inum
+R-party
 R-partykit
+R-varImp

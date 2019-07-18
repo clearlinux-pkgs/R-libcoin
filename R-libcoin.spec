@@ -4,22 +4,27 @@
 #
 Name     : R-libcoin
 Version  : 1.0.4
-Release  : 24
+Release  : 25
 URL      : https://cran.r-project.org/src/contrib/libcoin_1.0-4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/libcoin_1.0-4.tar.gz
 Summary  : Linear Test Statistics for Permutation Inference
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: R-libcoin-lib = %{version}-%{release}
+Requires: R-TH.data
+Requires: R-coin
 Requires: R-matrixStats
 Requires: R-modeltools
 Requires: R-multcomp
+Requires: R-mvtnorm
+Requires: R-sandwich
 BuildRequires : R-TH.data
 BuildRequires : R-coin
 BuildRequires : R-matrixStats
 BuildRequires : R-modeltools
 BuildRequires : R-multcomp
 BuildRequires : R-mvtnorm
+BuildRequires : R-sandwich
 BuildRequires : buildreq-R
 
 %description
@@ -40,13 +45,13 @@ lib components for the R-libcoin package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1552809566
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1563474643
 
 %install
-export SOURCE_DATE_EPOCH=1552809566
+export SOURCE_DATE_EPOCH=1563474643
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -75,12 +80,12 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  libcoin || :
+R CMD check --no-manual --no-examples --no-codoc libcoin || :
 
 
 %files
