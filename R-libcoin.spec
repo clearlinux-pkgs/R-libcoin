@@ -4,27 +4,15 @@
 #
 Name     : R-libcoin
 Version  : 1.0.5
-Release  : 26
+Release  : 27
 URL      : https://cran.r-project.org/src/contrib/libcoin_1.0-5.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/libcoin_1.0-5.tar.gz
 Summary  : Linear Test Statistics for Permutation Inference
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: R-libcoin-lib = %{version}-%{release}
-Requires: R-TH.data
-Requires: R-coin
-Requires: R-matrixStats
-Requires: R-modeltools
-Requires: R-multcomp
 Requires: R-mvtnorm
-Requires: R-sandwich
-BuildRequires : R-TH.data
-BuildRequires : R-coin
-BuildRequires : R-matrixStats
-BuildRequires : R-modeltools
-BuildRequires : R-multcomp
 BuildRequires : R-mvtnorm
-BuildRequires : R-sandwich
 BuildRequires : buildreq-R
 
 %description
@@ -46,10 +34,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1566909375
+export SOURCE_DATE_EPOCH=1568758038
 
 %install
-export SOURCE_DATE_EPOCH=1566909375
+export SOURCE_DATE_EPOCH=1568758038
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
