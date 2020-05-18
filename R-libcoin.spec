@@ -4,7 +4,7 @@
 #
 Name     : R-libcoin
 Version  : 1.0.5
-Release  : 31
+Release  : 32
 URL      : https://cran.r-project.org/src/contrib/libcoin_1.0-5.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/libcoin_1.0-5.tar.gz
 Summary  : Linear Test Statistics for Permutation Inference
@@ -14,7 +14,6 @@ Requires: R-libcoin-lib = %{version}-%{release}
 Requires: R-mvtnorm
 BuildRequires : R-mvtnorm
 BuildRequires : buildreq-R
-BuildRequires : util-linux
 
 %description
 No detailed description available
@@ -29,21 +28,22 @@ lib components for the R-libcoin package.
 
 %prep
 %setup -q -c -n libcoin
+cd %{_builddir}/libcoin
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571855106
+export SOURCE_DATE_EPOCH=1589825633
 
 %install
-export SOURCE_DATE_EPOCH=1571855106
+export SOURCE_DATE_EPOCH=1589825633
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
