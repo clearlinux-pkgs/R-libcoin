@@ -4,7 +4,7 @@
 #
 Name     : R-libcoin
 Version  : 1.0.8
-Release  : 38
+Release  : 39
 URL      : https://cran.r-project.org/src/contrib/libcoin_1.0-8.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/libcoin_1.0-8.tar.gz
 Summary  : Linear Test Statistics for Permutation Inference
